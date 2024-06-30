@@ -1,0 +1,145 @@
+.layout {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  margin: 5% auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+.layout-header {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 20px;
+  font-size: 14px;
+}
+.layout-header-notch {
+  width: 120px;
+  height: 28px;
+  background-color: #000;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+.layout-header-clock {
+  flex: 1;
+  text-align: left;
+}
+.camera-lens {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-left: 4px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+.layout-header-connectivity {
+  flex: 1;
+  text-align: right;
+}
+
+.layout-body {
+  height: calc(100% - 80px);
+  width: 100%;
+  padding: 12px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15vh;
+  gap: 20px;
+}
+.layout-footer {
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+
+.layout-footer::after {
+  content: "";
+  width: 30%;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.moon-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  margin: 0;
+}
+.sun {
+  font-size: 180px;
+  color: var(--bg-moon-light);
+}
+
+.moon {
+  font-size: 180px;
+  color: var(--bg-moon-dark);
+}
+
+.heading,
+.paragraph {
+  text-align: center;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+.paragraph {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* theme code goes here */
+
+[data-theme="dark"] .layout {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+[data-theme="light"] .layout {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+[data-theme="dark"] .layout-footer::after {
+  background-color: var(--bg-color-gray-100-dark);
+}
+
+[data-theme="light"] .layout-footer::after {
+  background-color: var(--bg-color-gray-100-light);
+}
+
+/* media querry for small screen goes here */
+
+@media screen and (max-width: 480px) {
+  .layout {
+    width: 100%;
+    height: 100vh;
+    box-shadow: unset;
+    margin: unset;
+    border-radius: unset;
+  }
+  .layout-body {
+    width: 100%;
+  }
+}
