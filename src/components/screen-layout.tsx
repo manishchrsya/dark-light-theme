@@ -51,6 +51,13 @@ const BodyLayout = () => {
   const theme = toggle ? "dark" : "light";
 
   useEffect(() => {
+    const darkThemeMatches = window.matchMedia("(prefers-color-scheme: dark)");
+    if (darkThemeMatches.matches) {
+      setToggle(true);
+    }
+  }, []);
+
+  useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
   return (
